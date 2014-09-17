@@ -1,10 +1,14 @@
 #= require services/book
+#= require directives/books/row
 
-app = angular.module 'booksController', ['bookService']
+app = angular.module 'booksController', ['bookService', 'bookRow']
 
 app.controller 'BooksController', ['$scope', 'Book',
   ($scope, Book) ->
     $scope.books = Book.all {}
+    $scope.removeBook = (book) ->
+      book.$destroy {}, ->
+        $scope.books = (b for b in $scope.books when b.id isnt book.id)
 ]
 
 app.controller 'BookController', ['$scope', '$routeParams', '$location', 'Book',

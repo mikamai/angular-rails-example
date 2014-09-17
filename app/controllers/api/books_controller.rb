@@ -15,6 +15,12 @@ class API::BooksController < API::BaseController
     respond_with :api, @book
   end
 
+  def destroy
+    @book = Book.find params[:id]
+    @book.destroy
+    respond_with :api, @book
+  end
+
   private
 
   def book_params

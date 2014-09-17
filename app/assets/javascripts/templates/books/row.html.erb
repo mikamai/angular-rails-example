@@ -1,0 +1,10 @@
+<td class="remove-col">
+  <a href class="text-danger" ng-click="removeBook(book)"><i class="glyphicon glyphicon-remove"></i></a>
+</td>
+<td class="isbn-col">{{book.isbn}}</td>
+<td class="author-col">{{book.author}}</td>
+<td class="title-col">{{book.title}}</td>
+<td class="price-col">$ {{book.price / 1000 | number : 2}}</td>
+<td class="action-col">
+  <a ng-href="/{{book.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
+</td>
