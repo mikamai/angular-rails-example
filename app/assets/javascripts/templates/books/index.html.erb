@@ -3,25 +3,29 @@
     <header class="page-header">
       <h2>Books</h2>
     </header>
-    <table class="table table-condensed">
+    <table class="table">
       <thead>
         <tr>
-          <th class="action-col"></th>
+          <th class="remove-col"></th>
           <th class="isbn-col">ISBN</th>
           <th class="author-col">Author(s)</th>
           <th class="title-col">Title</th>
           <th class="price-col">Price</th>
+          <th class="action-col"></th>
         </tr>
       </thead>
       <tbody>
         <tr ng-repeat="book in books">
-          <td class="action-col">
+          <td class="remove-col">
             <a href class="text-danger"><i class="glyphicon glyphicon-remove"></i></a>
           </td>
           <td class="isbn-col">{{book.isbn}}</td>
           <td class="author-col">{{book.author}}</td>
           <td class="title-col">{{book.title}}</td>
           <td class="price-col">$ {{book.price / 1000 | number : 2}}</td>
+          <td class="action-col">
+            <a ng-href="/{{book.id}}"><i class="glyphicon glyphicon-pencil"></i></a>
+          </td>
         </tr>
       </tbody>
     </table>
