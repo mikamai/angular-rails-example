@@ -4,19 +4,19 @@
       <h2>Book</h2>
     </header>
     <form role="form" novalidate name="bookForm">
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !bookForm.book_isbn.$valid}">
         <label for="book_isbn"><%= Book.human_attribute_name :isbn %></label>
         <input type="text" name="book_isbn" ng-model="book.isbn" class="form-control" required />
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !bookForm.book_author.$valid}">
         <label for="book_author"><%= Book.human_attribute_name :author %></label>
         <input type="text" name="book_author" ng-model="book.author" class="form-control" required />
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !bookForm.book_title.$valid}">
         <label for="book_title"><%= Book.human_attribute_name :title %></label>
         <input type="text" name="book_title" ng-model="book.title" class="form-control" required />
       </div>
-      <div class="form-group">
+      <div class="form-group" ng-class="{'has-error': !bookForm.book_isbn.$valid, 'has-warning': book.price == 0}">
         <label for="book_price"><%= Book.human_attribute_name :price %></label>
         <div class="input-group">
           <span class="input-group-addon">$</span>
@@ -26,7 +26,7 @@
       <div class="actions">
         <a ng-href="/" class="btn btn-default">Back</a>
         <div class="pull-right">
-          <button class="btn btn-primary" ng-click="submitBook()">Save</button>
+          <button class="btn btn-primary" ng-click="submitBook()" ng-disabled="!bookForm.$valid">Save</button>
         </div>
       </div>
     </form>
