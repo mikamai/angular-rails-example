@@ -17,6 +17,15 @@
       <tbody>
         <tr book-row book="book" removebook="removeBook(book)" ng-repeat="book in books"></tr>
       </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="6">
+            <div class="pull-right">
+              <a ng-href="/new" class="btn btn-primary">New Book</a>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
     </table>
   </div>
 </div>

@@ -4,6 +4,16 @@ class API::BooksController < API::BaseController
     respond_with :api, @books
   end
 
+  def new
+    @book = Book.new price: 0.0
+    respond_with :api, @book
+  end
+
+  def create
+    @book = Book.create book_params
+    respond_with :api, @book
+  end
+
   def show
     @book = Book.find params[:id]
     respond_with :api, @book

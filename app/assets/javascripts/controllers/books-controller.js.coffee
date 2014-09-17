@@ -19,6 +19,9 @@ app.controller 'BookController', ['$scope', '$routeParams', '$location', 'Book',
         $scope.book.price = $scope.bookHumanPrice * 1000
 
     $scope.submitBook = ->
-      $scope.book.$update {}, ->
-        $location.path "/"
+      callback = -> $location.path "/"
+      if $scope.book.id?
+        $scope.book.$update {}, callback
+      else
+        Book.create $scope.book, callback
 ]
