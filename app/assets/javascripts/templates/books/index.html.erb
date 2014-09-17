@@ -14,22 +14,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr ng-repeat="book in books">
           <td class="action-col">
             <a href class="text-danger"><i class="glyphicon glyphicon-remove"></i></a>
           </td>
-          <td class="isbn-col">
-            123456789
-          </td>
-          <td class="author-col">
-            John Smith
-          </td>
-          <td class="title-col">
-            Sample Book
-          </td>
-          <td class="price-col">
-            $ 12.00
-          </td>
+          <td class="isbn-col">{{book.isbn}}</td>
+          <td class="author-col">{{book.author}}</td>
+          <td class="title-col">{{book.title}}</td>
+          <td class="price-col">$ {{book.price / 1000 | number : 2}}</td>
         </tr>
       </tbody>
     </table>
