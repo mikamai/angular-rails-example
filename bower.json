@@ -1,0 +1,10 @@
+{
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      "angular": "latest",
+      "angular-route": "latest",
+      "angular-resource": "latest"
+    }
+  }
+}
